@@ -1,11 +1,13 @@
 # Inverter_Schematic_To_GDS
-**Inverter_Schematic_To_GDS (45nm)**
+****Inverter_Schematic_To_GDS (45nm)****
+
 This project demonstrates the complete Schematic-to-GDSII flow for a CMOS inverter using Cadence Virtuoso with the GPDK045 (45nm technology) library. It covers schematic design, simulation, layout, verification (DRC, LVS), parasitic extraction, and GDS generation.
 
-**🎯 Objective**
+****Objective****
+
 To design and implement a CMOS inverter in 45nm technology, verify its layout against design rules and schematic, and generate a GDSII file suitable for fabrication.
 
-**Tools & Technology used - **
+****Tools & Technology used****
 
 | Tool/Platform     | Purpose                               |
 | ----------------- | ------------------------------------- |
@@ -14,58 +16,46 @@ To design and implement a CMOS inverter in 45nm technology, verify its layout ag
 | Assura            | DRC, LVS, RCX (Parasitic Extraction)  |
 | GPDK045           | 45nm Technology Design Kit            |
 
-**Project Structure
-**
-Inverter_Schematic_To_GDS/
-├── schematic/               # Schematic and symbol views
-├── layout/                  # Layout view of the inverter
-├── simulation/              # Functional and post-layout simulations
-├── verification/            # DRC and LVS reports
-├── extracted/               # Extracted view with parasitics
-├── gds/                     # Final GDSII file
-└── README.md                # Documentation
+****Design Flow****
 
-
-🔧 Design Flow
-1. Schematic Design
+_**1. Schematic Design**_
 NMOS and PMOS connected in pull-down and pull-up configuration respectively.
 
-Create symbol view for top-level usage and simulation.
+**Create symbol view for top-level usage and simulation.**
 
-2. Functional Simulation (Pre-layout)
+_**2. Functional Simulation (Pre-layout)**_
 Transient simulation using Spectre.
 
-Verify logic functionality, propagation delay, rise/fall times.
+**Verify logic functionality, propagation delay, rise/fall times.**
 
-3. Layout Design
+_**3. Layout Design**_
 Draw layout using GPDK045 rules.
 
-Use appropriate layer assignments and transistor PCell generation.
+**Use appropriate layer assignments and transistor PCell generation.**
 
-4. DRC (Design Rule Check)
+_**4. DRC (Design Rule Check)**_
 Run DRC via Assura .
 
-Ensure there are 0 violations.
+**Ensure there are 0 violations**
 
-5. LVS (Layout vs Schematic)
+_**5. LVS (Layout vs Schematic)**_
 Confirm the layout matches the schematic.
 
-Pass LVS with net and device match.
+**Pass LVS with net and device match.**
 
-6. Parasitic Extraction (RCX)
+_**6. Parasitic Extraction (RCX)**_
 Use Assura RCX to extract parasitics.
 
-Generate extracted view for post-layout simulation.
+**Generate extracted view for post-layout simulation.**
 
-7. Post-Layout Simulation
+_**7. Post-Layout Simulation**_
 Run transient simulation using the extracted view.
 
-Measure impact of parasitics on delay and performance.
+**Measure impact of parasitics on delay and performance.**
 
-8. GDSII Generation
+_**8. GDSII Generation**_
 Export layout to GDSII using Cadence Virtuoso.
 
-Ensure correct layer mapping file is used (e.g., gpdk045.tf, gpdk045.map).
 
 **✅ Verification Summary**
 
